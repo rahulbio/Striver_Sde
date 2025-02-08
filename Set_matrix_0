@@ -1,0 +1,44 @@
+a=[[1,1,1],
+[1,0,1],
+[1,1,1]]
+
+a=[[1,0,1,1],
+  [1,1,1,1],
+  [0,0,1,1]]
+n=len(a)
+m=len(a[0])
+
+first_row_zero=False
+first_column_zero=False
+
+#Checking 1st row is zero or not
+for j in range(1,m):
+    if(a[0][j]==0):
+        first_row_zero=True
+
+#Checking 1st column zero
+for j in range(1,n):
+    if(a[j][0]==0):
+        first_column_zero=True
+
+#Markers to find 0
+for i in range(1,n):
+    for j in range(m):
+        if(a[i][j]==0):
+            a[i][0]=0
+            a[0][j]=0
+
+for i in range(1,n):
+    for j in range(m):
+        if a[i][0] ==0 or a[0][j]==0:
+            a[i][j]=0
+
+if first_row_zero:
+    for j in range(m):
+        a[0][j]=0
+
+if first_column_zero:
+    for i in range(n):
+        a[i][0]=0
+
+print(a)
